@@ -16,18 +16,19 @@ class Parent
     // private data members
 	private:
 	int id1_private; 
-	public:
-	void setId1(int Id1)
+	void getparent()
     {
-    	id1_private=Id1;
+    	cout<<"enter the private id"<<endl;
+    	cin>>id1_private;
 	}
-	void displayId1()
+	public:
+	void putparent()
     {
-    	cout<<"id_private is:"<<id1_private<<endl;	
+    	getparent();
 	}
 }; 
 // sub class or derived class 
-class Child : public Parent 
+class Child : protected Parent 
 {    
     public: 
     void setId(int id) 
@@ -46,16 +47,16 @@ int main(int argc,char* argv[])
  { 
         if((argc==2)&&strcmp(argv[1],"-h")==0)    //created a help command
         {
-            cout<<"observe the differences "<<endl;
+            cout<<"enter the input to the private mem "<<endl;
         }
     else
     {
-    Child obj1,obj2; 
+    Child obj1; 
+    Parent obj2;
      // access the protected data members of the base class 
     obj1.setId(81); 
     obj1.displayId(); 
-    obj2.setId1(77);
-    obj2.displayId1();
+    obj2.putparent();
     return 0; 
 }
 }
